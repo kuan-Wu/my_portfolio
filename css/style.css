@@ -1,0 +1,649 @@
+@import url(reset.css);
+
+/* ============= My Styles ============= */
+
+/* ========= Mods ========== */
+:root {
+    --header-height: 5rem;
+
+    /* ========= Colors ========== */
+    --first-color-white: #FFFFFF;
+    --first-color-black: #1A1A1A;
+    --first-color-dark: #444444;
+    --text-color: #666666;
+    --first-color-light: #F5F5F5;
+    --first-color-lighten: #D3D3D3;
+
+    /* ========= Font ========== */
+    --body-font: 'Lato', sans-serif;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .55rem;
+
+    /* ========= Font weight ========== */
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+
+    /* ========= Margenes ========== */
+    --mb-1: .5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --mb-6: 3rem;
+    --mb-7: 5rem;
+
+    /* ========= Z index ========== */
+    --z-normal: 1;
+    --z-tootip: 10;
+    --z-fixed: 100;
+}
+
+/*@media screen and (min-width: 768px) {
+    :root {
+        --h1-font-size: 4.5rem;
+        --h2-font-size: 2.25rem;
+        --h3-font-size: 1.5rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+    }    
+}*/
+
+/* ========= BASE ========== */
+*,::before,::after{
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    background-color: var(--first-color-white);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1,h2,h3,ul,p {
+    margin: 0;
+}
+
+h2,h3 {
+    font-weight: var(--font-semi-bold);
+}
+
+ul {
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========= CLASS CSS ========== */
+section {
+    padding: 0 0 2rem;
+}
+
+.project, .contact {
+    padding: 4rem 0 2rem;
+}
+
+.section-title {
+    font-size: var(--h2-font-size);
+    color: var(--first-color-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-subtitle {
+    display: block;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-semi-bold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: var(--mb-3);
+}
+
+/* ========= LAYOUT ========== */
+.bd-container {
+    max-width: 1024px;
+    width: calc(100% - 2rem);
+    margin-left: var(--mb-2);
+    margin-right: var(--mb-2);
+}
+
+.bd-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* ========= HEADER ========== */
+.main-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: #FFFFFF;
+}
+
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 830px){
+    .nav_menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        padding-top: 1.5rem;
+        text-align: center;
+        background-color: var(--first-color-white);
+        transition: .4s;
+        box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        border-radius: 0 0 .3rem .3rem;
+    }
+}
+
+.nav_item {
+    margin-bottom: var(--mb-3);
+}
+
+.nav_link {
+    color: var(--text-color);
+    transition: .2s;
+}
+
+.nav_link:hover {
+    color: var(--first-color-dark);
+}
+
+.nav_toggle {
+    color: var(--first-color-black);
+}
+
+.nav_toggle {
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.nav_logo img {
+    width: 83px;
+    height: 36px;
+    cursor: pointer;
+}
+
+/* Show menu */
+.show-menu {
+    top: var(--header-height);
+}
+
+/* Active menu */
+.active-link {
+    position: relative;
+}
+
+.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -.7rem;
+    left: 0;
+    width: 65%;
+    height: 3px;
+    background-color: var(--text-color);
+}
+
+/* Change background header */
+.scroll-header {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+/* ========= SCROLL TOP ========== */
+.scrolltop {
+    color: var(--first-color-dark);
+    position: fixed;
+    bottom: -20%;
+    right: 1rem;
+    padding: .5rem;
+    background-color: rgba(68,68,68,.10);
+    border-radius: .3rem;
+    z-index: var(--z-tootip);
+    transition: .4s;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+
+/* Show scroll top */
+.show-scroll {
+    visibility: visible;
+    bottom: 2rem;
+}
+
+/* ========= ABOUT ========== */
+.about {
+    background-color: var(--first-color-white);
+}
+
+.about_data p {
+    font-size: 14px;
+}
+
+.about_container {
+    grid-template-rows: repeat(2);
+}
+
+.about_greeting {
+    display: block;
+    font-size: var(--h1-font-size);
+    color: var(--first-color-black);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--mb-2);
+    margin-top: var(--mb-2);
+    letter-spacing: .1rem;
+}
+
+.about_profession {
+    color: var(--first-color-black);
+    font-weight: var(--font-semi-bold)
+}
+
+.about_img {
+    margin-top: var(--mb-3);
+}
+
+.about_scroll-btn {
+    color: var(--first-color-black);
+    transform: translateY(0);
+    transition-duration: .5s;
+    transition-timing-function: ease-out;
+}
+
+.about_scroll-btn:hover {
+    transform: translateY(.5rem);
+    color: var(--first-color-dark);    
+}
+
+.about_scroll-mouse {
+    font-size: 13px;
+}
+
+.home_scroll-arrow {
+    font-size: 13px;
+}
+
+.about_scroll-name {
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.about_scroll {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--mb-3);
+}
+/* skill */
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: var(--mb-5);
+    margin-bottom: var(--mb-3);
+}
+
+
+.skill_item {
+    font-size: var(--h3-font-size);
+}
+
+.skill_items {
+    font-size: 14px;
+}
+/* ========= PROJECT ========== */
+.project_content {
+    grid-template-columns: 240px;
+    justify-content: center;
+}
+
+.projects {
+    transform: scale(1);
+    transition: .5s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.projects:hover  {
+    transform: scale(1.1);
+}
+
+.project_name {
+    text-align: center;
+    margin-top: var(--mb-1);
+}
+/* ========= CONTACT ========== */
+.contact {
+    margin-bottom: var(--mb-6);
+}
+.my_email {
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    color: var(--first-color-black);
+}
+
+.email_section p {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.email_icon {
+    font-size: 14px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.contact_input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--text-color);
+    border-radius: .5rem;
+    margin-bottom: var(--mb-1);
+}
+
+.contact_input::placeholder {
+    color: var(--text-color);
+    font-family: 'Lato', sans-serif;
+    font-weight: var(--font-semi-bold);
+}
+
+.contact_button {
+    padding: 15px;
+    background-color: var(--first-color-black);
+    color: var(--first-color-light);
+    font-size: 15px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    border-radius: .5rem;
+}
+/* ========= FOOTER ========== */
+.footer {
+    background-color: var(--first-color-black);
+    padding: 80px 0 20px 0;
+}
+
+.footer_content h1{
+    color: var(--first-color-light);
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--mb-1);
+}
+.footer_content p {
+    color: var(--first-color-lighten);
+    margin-bottom: var(--mb-3);
+    font-size: 14px;
+}
+
+.footer_icon {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--mb-2);
+}
+
+.footer_icon a {
+    font-size: 30px;
+    color: var(--first-color-light);
+    cursor: pointer;
+}
+
+.copyright {
+    color: var(--first-color-lighten);
+    font-size: 13px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 2px solid var(--text-color);
+}
+
+.copyright p {
+    padding-top: 10px;
+}
+
+/* ========= MEDIA QUERIES ========== */
+@media screen and (min-width: 576px) {
+    .project, .contact {
+        margin-top: var(--mb-7);
+    }
+
+    .nav {
+        height: 6rem;
+    }
+
+    .about_img {
+        display: flex;
+        justify-content: center;
+    }
+
+    .bd-container {
+        width: calc(100% - 10rem);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    :root {
+        --h1-font-size: 1.9rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1rem;
+        --normal-font-size: .9rem;
+        --small-font-size: .7rem;
+    }
+
+    .about_data p, p {
+        font-size: 17px;
+    }
+
+    .about_scroll-mouse {
+        font-size: 15px;
+    }
+    
+    .home_scroll-arrow {
+        font-size: 15px;
+    }
+    
+    .about_scroll-name {
+        font-size: 15px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .skill_content {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .skill_content {
+        display: flex;
+        justify-content: space-around;
+        margin-top: var(--mb-3);
+    }
+
+    .skill_items p {
+        font-size: 15px;
+    }
+
+    .email_section p, .my_email p, .email_icon {
+        font-size: 14px;
+    }
+
+    .footer_content p {
+        font-size: 18px;
+    }
+
+    .project_content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .email_icon {
+        padding-top: 7px;
+    }
+
+    .contact_button {
+        font-size: 18px;
+    }
+
+    .footer_icon a {
+        font-size: 40px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .skill_content {
+        gap: 4rem;
+    }
+
+    .email_icon {
+        padding-top: 5px;
+    }
+}
+
+@media screen and (min-width: 831px){
+    .bd-container {
+        width: calc(100% - 12rem);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    :root {
+        --h1-font-size: 1.9rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1rem;
+        --normal-font-size: .9rem;
+        --small-font-size: .7rem;
+    }
+
+    .section-title {
+        font-size: var(--h2-font-size);
+        color: var(--first-color-dark);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section-subtitle {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        margin-bottom: var(--mb-5);
+    }
+
+    .nav {
+        height: calc(var(--header-height) + 1.5rem);
+    }
+
+    .nav_list {
+        display: flex;
+    }
+
+    .nav_item {
+        margin-left: var(--mb-5);
+        margin-bottom: 0;
+    }
+
+    .nav_toggle {
+        display: none;
+    }
+
+    .about_container {
+        margin-bottom: 100px;
+    }
+    
+    .about_part {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: var(--mb-1);
+    }
+
+    .about_profession {
+        line-height: 3;
+    }
+
+    .about_data p {
+        line-height: 2;
+        font-size: 15px;
+        word-wrap: break-word;
+    }
+
+    .about_data {
+        display: flex;
+        flex-direction: column;
+        padding-right: 20px;
+    }
+
+    .about_scroll {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 120px;
+    }
+
+    .skill_title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill_2 {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .skill_content h3 {
+        margin-bottom: var(--mb-1);
+    }
+
+    .contact_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .email_section {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .email_section p, .my_email {
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .skill_2 {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    :root {
+        --h3-font-size: 1.3rem;
+    }
+}
